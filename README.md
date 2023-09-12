@@ -18,6 +18,7 @@ i. Melakukan deployment ke adaptable dan perlu mengunggah project Django ke serv
 j. Membuat file README.md yang berisi link aplikasi yg dideploy pada adaptable serta menjawab pertanyaan-pertanyaan dari checklist
 
 3. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
+
 ![Gambar Bagan Request Client Wahyu Aji Aruma](BaganRequest_WahyuAjiAruma.png) 
 
 4. Jelaskan mengapa kita menggunakan virtual environment? Apakah kita tetap dapat membuat aplikasi web berbasis Django tanpa menggunakan virtual environment?
