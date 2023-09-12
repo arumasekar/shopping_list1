@@ -6,16 +6,16 @@ Kelas: B
 Link: https://main.adaptable.app
 
 2. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
-a. Membuat direktori baru yang akan dikonfigurasi dengan proyek django
-b. Membuat virtual environment lalu diaktifkan
-c. Membuat proyek django baru dengan perintah 'django-admin startproject <namaprojek>'
-d. Membuat aplikasi bernama 'main' dengan perintah 'python manage.py startapp main'
-e. Melakukan routing project dengan membuka berkas 'urls.py' dan menambahkan rute ke aplikasi 'main'
-f. Membuat model bernama 'item' dengan membuka berkas 'models.py' pada aplikasi 'main' dan membuat model 'item' dengan minimal atribut name,amount,description
-g. Membuat fungsi pada berkas 'views.py' yg mengembalikan data ke template HTML sehingga dapat menampilkan nama aplikasi, nama serta kelas
-h. Melakukan routing aplikasi 'main' dengan membuka file 'urls.py' pada aplikasi main dan memetakan fungsi ke views.py
-i. Melakukan deployment ke adaptable dan perlu mengunggah project Django ke server Adaptable sehingga dapat diakses ke internet
-j. Membuat file README.md yang berisi link aplikasi yg dideploy pada adaptable serta menjawab pertanyaan-pertanyaan dari checklist
+- Membuat direktori baru yang akan dikonfigurasi dengan proyek django
+- Membuat virtual environment lalu diaktifkan
+- Membuat proyek django baru dengan perintah 'django-admin startproject <namaprojek>'
+- Membuat aplikasi bernama 'main' dengan perintah 'python manage.py startapp main'
+- Melakukan routing project dengan membuka berkas 'urls.py' dan menambahkan rute ke aplikasi 'main'
+- Membuat model bernama 'item' dengan membuka berkas 'models.py' pada aplikasi 'main' dan membuat model 'item' dengan minimal atribut name,amount,description
+- Membuat fungsi pada berkas 'views.py' yg mengembalikan data ke template HTML sehingga dapat menampilkan nama aplikasi, nama serta kelas
+- Melakukan routing aplikasi 'main' dengan membuka file 'urls.py' pada aplikasi main dan memetakan fungsi ke views.py
+- Melakukan deployment ke adaptable dan perlu mengunggah project Django ke server Adaptable sehingga dapat diakses ke internet
+- Membuat file README.md yang berisi link aplikasi yg dideploy pada adaptable serta menjawab pertanyaan-pertanyaan dari checklist
 
 3. Buatlah bagan yang berisi request client ke web aplikasi berbasis Django beserta responnya dan jelaskan pada bagan tersebut kaitan antara urls.py, views.py, models.py, dan berkas html.
 
@@ -26,11 +26,11 @@ Jika kita menggunakan virtual environment, semua library akan diinstal secara de
 
 
 5. Jelaskan apakah itu MVC, MVT, MVVM dan perbedaan dari ketiganya.
-a. MVC (Model View Controller)
+- MVC (Model View Controller)
 merupakan pola desain perangkat lunak yang digunakan untuk mengimplementasikan antarmuka pengguna dan memberikan penekanan pada pemisahan representasi data dari komponen dalam memproses data.
-b. MVT (Model View Template)
+- MVT (Model View Template)
 merupakan pola desain yang mirip dengan MVC. Implementasi yang dilakukan juga untuk antarmuka wes dan aplikasi, tetapi perbedaannya adalah pada bagian pengontrol ditangani oleh kerangka kerja itu sendiri.
-c. MVVM (The Model — View — ViewModel)
+- MVVM (The Model — View — ViewModel)
 merupakan arsitektur yang memfasilitasi pemisahan pengembangan antarmuka pengguna grafis dengan bantuan bahasa atau kode GUI. Selain itu, MVVM jua bertanggung jawab untuk mengekspos objek data dari model sedemikian rupa sehingga objek lebih mudah dikelola.
 Perbedaan dari MVC, MVT, dan MVVM adalah:
 # MVC:
