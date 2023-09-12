@@ -1,6 +1,6 @@
-Nama: Wahyu Aji Aruma Sekar Puri
-NPM: 2206816115
-Kelas: B
+- Nama: Wahyu Aji Aruma Sekar Puri
+- NPM: 2206816115
+- Kelas: B
 
 1. Membuat sebuah README.md yang berisi tautan menuju aplikasi Adaptable yang sudah di-deploy, serta jawaban dari beberapa pertanyaan berikut.
 Link: https://main.adaptable.app
