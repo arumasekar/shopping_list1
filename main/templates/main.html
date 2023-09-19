@@ -1,55 +1,79 @@
-<h1>Shopping List-1 Page</h1>
+{% extends 'base.html' %}
 
-<nav>
-    <ul>
-        <li><a href="#description">Description</a></li>
-    </ul>
-</nav>
+{% block content %}
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
 
-<div class="description">
-    <p>Ini adalah halaman untuk melihat daftar belanja Anda.</p>
-    <p>Anda dapat menavigasi ke beranda, keranjang belanja, atau riwayat pesanan Anda.</p>
-</div>
+        th, td {
+            padding: 8px;
+            text-align: left;
+            border-bottom: 1px solid #1B1464;
+        }
+
+        th {
+            background-color: #5758BB; /* Warna latar belakang untuk baris judul */
+            color: white; /* Warna teks untuk baris judul */
+        }
+
+        tr:hover {
+            background-color: #9980FA; /* Warna latar belakang saat kursor diarahkan pada baris */
+        }
+    </style>
+
+    <h1>Shopping List Page</h1>
+
+    <h5>Name: Wahyu Aji Aruma Sekar Puri</h5>
+    <h5>Class: PBP B</h5>
+    <h5>Student ID: 2206816115</h5>
+
+    <nav>
+        <ul>
+            <li><a href="#description">Description</a></li>
+        </ul>
+    </nav>
+    
+    <div class="description">
+        <p>Ini adalah halaman untuk melihat daftar belanja Anda.</p>
+        <p>Anda dapat menavigasi ke beranda, keranjang belanja, atau riwayat pesanan Anda.</p>
+    </div>
 
 
-<h5>Name: Wahyu Aji Aruma Sekar Puri</h5>
-<h5>Class: PBP B</h5>
-<h5>Student ID: 2206816115</h5>
-
-<table border="1">
-    <thead>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for product in products %}
         <tr>
-            <th>Name</th>
-            <td>Hummel</td>
-            <td>DC</td>
-            <td>361'</td>    
-            <td>Milliot</td> 
+            <td>{{product.name}}</td>
+            <td>{{product.amount}}</td>
+            <td>{{product.price}}</td>
+            <td>{{product.description}}</td>
         </tr>
-        <tr>
-            <th>Amount</th>
-            <td>2</td>
-            <td>1</td>
-            <td>1</td>
-            <td>1</td>
-        </tr>
-        <tr>
-            <th>Description</th>
-            <td>Sepatu OKE</td>
-            <td>Sepatu OKE juga</td>
-            <td>Ini sepatu saya</td>
-            <td>Sepatu ini mahal bet</td>
-        </tr>
-        <tr>
-            <th>Variant</th>
-            <td>Minneapolis</td>
-            <td>Lynx Zero</td>
-            <td>Skateboarding</td>
-            <td>Mah Jongg Round</td>
-        </tr>
-    <thead>
-    </tbody>
-</table>
+    {% endfor %}
+        </tbody>
+    </table>
+    
 
+    <br />
 
+    <a href="{% url 'main:create_product' %}">
+        <button>
+            Add New Product
+        </button>
+    </a>
 
+    <br />
+    <br />
+{% endblock content %}
 
+   
+      
