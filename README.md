@@ -88,9 +88,20 @@ Membuat view yang dapat mengembalikan data produk berdasarkan ID yang ditentukan
 Menggunakan Postman sebagai alat untuk menguji endpoint-endpoint yang telah dibuat dalam proyek. Tukang pos digunakan untuk mengirim permintaan GET ke URL yang sesuai dan menerima respons dalam bentuk XML atau JSON.
 
 5. Mengakses kelima URL di poin 2 menggunakan Postman, membuat screenshot dari hasil akses URL pada Postman
+# Gambar Postman HTML
+![Alt Text](/GambarPostman_WahyuAjiAruma/LocalHost8000_WahyuAjiAruma.png)
 
+# Gambar Postman XML
+![Alt Text](/GambarPostman_WahyuAjiAruma/LocalHost8000xml_WahyuAjiAruma.png)
 
+# Gambar Postman JSON
+![Alt Test](/GambarPostman_WahyuAjiAruma/LocalHost8000json_WahyuAjiAruma.png)
 
+# Gambar Postman XML/4
+![Alt Text](/GambarPostman_WahyuAjiAruma/LocalHost8000xml_4_WahyuAjiAruma.png)
+
+# Gambar Postman JSON/4
+![Alt Text](/GambarPostman_WahyuAjiAruma/LocalHost8000json_4_WahyuAjiAruma.png)
 
 
 
