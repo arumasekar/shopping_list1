@@ -3,6 +3,65 @@
 - Kelas: B
 - Kode Asdos: EDA
 
+- TUGAS 4
+1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
+Django UserCreationForm merupakan tools python yang digunakan untuk membuat user baru yang dapat menggunakan aplikasi web. Terdapat tiga field, yaitu:
+- username
+- password1
+- password2 (untuk konfirmasi password1)
+Berikut kelebihan Django UserCreationForm:
+- Memudahkan user dalam interface
+- Validasi otomatis
+- Sistem autentikasi Django sudah terintegrasi
+- Dapat dikustomisasi sesuai kebutuhan pengguna
+Berikut kekurangan Django UserCreationForm:
+- Kurang fleksible pada kasus khusus sehingga perlu kustom sendiri.
+- User Interface terlalu monoton sehingga perlu menambah gaya desain sendiri sesuai keinginan
+- Kurang mendukung fitur yang kompleks. Jika ingin menambahkan role-base authentication maka kita perlu menuliskan kode tambahan karena UserCreationForm tidak menyediakan fitur tersebut.
+
+2. Apa perbedaan antara autentikasi dan otorisasi dalam konteks Django, dan mengapa keduanya penting?
+# Autentikasi:
+- Untuk memverifikasi identitas pengguna, serta mengonfirmasi bahwa mereka adalah siapa.
+- Memastikan bahwa hanya user yang berwenang yang dapat mengakses bagian tertentu pada aplikasi untuk melindungi akses data.
+- Autentikasi didasarkan pada nama user dan kata sandi, tetapi bisa mencakup metode lain seperti login sosial atau autentikasi multifaktor.
+
+# Otorisasi:
+- Untuk memutuskan apakah pengguna diperbolehkan melakukan suatu tindakan pada aplikasi.
+- Diterapkan melalui sistem izin dan peran user. Izin tersebut dilakukan secara spesifik yang boleh dilakukan user, seperti createing, reading, updating, atau deleting certain object.
+- Otorisasi Django memungkinkan kontrol menyeluruh atas siapa yang melakukan sesuatu pada aplikasi.
+
+# Kenapa penting?
+Autentikasi dan otorisasi pada Django dapat memastikan bahwa hanya pengguna asli yang dapat mengakses aplikasi dan melindunginya dari pelanggaran informasi sensitif. Keamanan tersebut dikontrol dengan prosedur privasi data untuk pengguna yang diizinkan untuk mengubah data. Selain itu, UX dari autentikasi dan otorisasi yang efektif meningkatkan pengalaman user dengan menyediakan konten dan fitur yang dipersonalisasi.
+
+3. Apa itu cookies dalam konteks aplikasi web, dan bagaimana Django menggunakan cookies untuk mengelola data sesi pengguna?
+Cookie (sering dikenal sebagai internet cookies) adalah file teks dengan potongan kecil data — seperti nama pengguna dan kata sandi — yang digunakan untuk mengidentifikasi komputer saat menggunakan jaringan. Cookie khusus digunakan untuk mengidentifikasi pengguna tertentu dan meningkatkan pengalaman penelusuran web. 
+Berikut cara Django mengelola data sesi pengguna:
+- Ketika pengguna masuk atau memulai sesi, Django menghasilkan kunci sesi unik.
+- Kunci sesi ini disimpan dalam cookie di perangkat pengguna.
+- Untuk setiap permintaan berikutnya, kunci sesi dikirim ke server dalam cookie.
+- Server menggunakan kunci sesi untuk mengambil dan memulihkan data sesi pengguna, sehingga aplikasi dapat mempertahankan status di beberapa permintaan.
+
+4. Apakah penggunaan cookies aman secara default dalam pengembangan web, atau apakah ada risiko potensial yang harus diwaspadai?
+Meskipun sebagian besar cookie benar-benar aman, beberapa cookie dapat digunakan untuk melacak pengguna tanpa persetujuan oleh penjahat dunia maya. Dalam dunia maya untuk menyamar sebagai pengguna, mengumpulkan data keuangan, mengakses akun mereka, atau mencuri kata sandi yang disimpan di browser.
+- Data exposure
+Jika cookie tidak dilindungi dengan baik, penyerang dapat mencuri pengidentifikasi sesi pengguna, sehingga mereka menyamar sebagai pengguna.
+- Perusakan Data
+Cookie dapat dimanipulasi oleh user jika tidak divalidasi dan dibersihkan dengan benar. 
+- Cross-Site Scripting (XSS)
+Serangan dapat menyebabkan pencurian cookie atau memanipulasi data jika penyerang memasukkan skrip berbahaya ke dalam aplikasi web.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- Langkah pertama adalah memastikan bahwa telah membuat proyek Django yang sudah berjalan. Proyek Django adalah kerangka kerja yang digunakan untuk membangun aplikasi web menggunakan Python. 
+- Membuat sebuah formulir yang akan digunakan oleh pengguna untuk mendaftar akun. Formulir ini dapat dibuat dengan menggunakan UserCreationForm, yang merupakan formulir bawaan yang disediakan oleh Django untuk keperluan pendaftaran pengguna. 
+- Membuat view atau tampilan yang akan menangani proses pendaftaran pengguna menggunakan formulir pendaftaran yang telah dibuat sebelumnya. View ini akan menerima data yang dikirimkan oleh pengguna melalui formulir dan melakukan pendaftaran akun pengguna.
+- Membuat template HTML untuk halaman pendaftaran akun pengguna. Di dalam template ini,akan menampilkan formulir pendaftaran yang telah dibuat sebelumnya. 
+- Membuat dua view yang akan mengelola proses login dan logout pengguna. View login akan memeriksa kredensial pengguna, seperti nama pengguna dan kata sandi, dan akan memungkinkan pengguna untuk masuk ke akun mereka. View logout akan mengakhiri sesi pengguna yang sudah login.
+- Membuat dua view yang akan mengelola proses login dan logout pengguna. View login akan memeriksa kredensial pengguna, seperti nama pengguna dan kata sandi, dan akan memungkinkan pengguna untuk masuk ke akun mereka.
+- Membuat template HTML untuk halaman login pengguna. Di dalam template ini akan menampilkan formulir login yang meminta pengguna untuk memasukkan nama pengguna dan kata sandi mereka. Template ini akan digunakan untuk merender halaman login yang akan dilihat oleh pengguna.
+- Menambahkan bidang yang merujuk ke User dalam definisi model Item.
+- Menampilkan informasi tentang pengguna yang sedang login di halaman utama aplikasi dengan menggunakan variabel request.user, yang akan memberikan akses ke objek pengguna yang sedang login saat ini
+
+
 
 - TUGAS 3
 1. Apa perbedaan antara form POST dan form GET dalam Django?

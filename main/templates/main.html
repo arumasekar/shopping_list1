@@ -25,9 +25,11 @@
 
     <h1>Shopping List Page</h1>
 
-    <h5>Name: Wahyu Aji Aruma Sekar Puri</h5>
-    <h5>Class: PBP B</h5>
-    <h5>Student ID: 2206816115</h5>
+    <h5>Name:</h5>
+    <p>{{name}}</p>
+
+    <h5>Class:</h5>
+    <p>{{class}}</p>
 
     <nav>
         <ul>
@@ -36,7 +38,7 @@
     </nav>
     
     <div class="description">
-        <p>Ini adalah halaman untuk melihat daftar belanja Anda.</p>
+        <p>Ini adalah halaman untuk melihat daftar belanja sepatu favorit Anda.</p>
         <p>Anda dapat menavigasi ke beranda, keranjang belanja, atau riwayat pesanan Anda.</p>
     </div>
 
@@ -62,6 +64,9 @@
         </tbody>
     </table>
     
+    <br />
+
+    <h5>Sesi terakhir login: {{ last_login }}</h5>
 
     <br />
 
@@ -70,8 +75,14 @@
             Add New Product
         </button>
     </a>
+</a>
 
-    <br />
+    <a href="{% url 'main:logout' %}">
+        <button>
+            Logout
+        </button>
+    </a>
+
     <br />
 {% endblock content %}
 
