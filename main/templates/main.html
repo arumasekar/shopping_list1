@@ -50,6 +50,7 @@
                 <th>Amount</th>
                 <th>Price</th>
                 <th>Description</th>
+                <th>Button</th>
             </tr>
         </thead>
         <tbody>
@@ -59,6 +60,12 @@
             <td>{{product.amount}}</td>
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>
+
+            <td>
+                <button class="add-quantity" data-product-id="{{product.id}}">Tambah</button>
+                <button class="reduce-quantity" data-product-id="{{product.id}}">Kurangi</button>
+            </td>
+
         </tr>
     {% endfor %}
         </tbody>
