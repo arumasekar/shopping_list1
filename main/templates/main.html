@@ -50,21 +50,19 @@
                 <th>Amount</th>
                 <th>Price</th>
                 <th>Description</th>
-                <th>Button</th>
             </tr>
         </thead>
         <tbody>
             {% for product in products %}
         <tr>
             <td>{{product.name}}</td>
-            <td>{{product.amount}}</td>
+            <td>
+                <span id="amount{{ product.id }}">{{ product.amount }}</span>
+                <button class="add-quantity" data-product-id="{{ product.id }}">Tambah</button>
+                <button class="reduce-quantity" data-product-id="{{ product.id }}">Kurangi</button>
+            </td>
             <td>{{product.price}}</td>
             <td>{{product.description}}</td>
-
-            <td>
-                <button class="add-quantity" data-product-id="{{product.id}}">Tambah</button>
-                <button class="reduce-quantity" data-product-id="{{product.id}}">Kurangi</button>
-            </td>
 
         </tr>
     {% endfor %}
@@ -89,6 +87,34 @@
             Logout
         </button>
     </a>
+
+    <script>
+        // JavaScript untuk menangani penambahan dan pengurangan jumlah stok
+        document.querySelectorAll('.add-quantity').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var productId = this.getAttribute('data-product-id');
+                var amountSpan = document.getElementById('amount' + productId);
+                var currentAmount = parseInt(amountSpan.textContent);
+                if (!isNaN(currentAmount)) {
+                    amountSpan.textContent = currentAmount + 1;
+                }
+            });
+        });
+    
+        document.querySelectorAll('.reduce-quantity').forEach(function(button) {
+            button.addEventListener('click', function() {
+                var productId = this.getAttribute('data-product-id');
+                var amountSpan = document.getElementById('amount' + productId);
+                var currentAmount = parseInt(amountSpan.textContent);
+                if (!isNaN(currentAmount) && currentAmount > 0) {
+                    amountSpan.textContent = currentAmount - 1;
+                }
+            });
+        });
+    </script>
+
+    </body>
+    </html>
 
     <br />
 {% endblock content %}
