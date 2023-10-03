@@ -8,7 +8,7 @@
 Dalam pengembangan web dan CSS (Cascading Style Sheets), pemilih elemen digunakan untuk menargetkan dan menata gaya elemen HTML pada halaman web. Ada beberapa jenis penyeleksi elemen, masing-masing memiliki manfaat dan kasus penggunaan yang sesuai. 
 # Type Selector (Element Selector)
 Type selectors menargetkan elemen HTML tertentu berdasarkan nama tagnya. Mereka lugas dan mudah digunakan.
-Penggunaan yang tepat: Pemilih jenis biasanya digunakan saat Anda ingin menerapkan gaya yang konsisten pada jenis elemen tertentu di seluruh situs web Anda. Misalnya, menata semua elemen <h1> dengan font dan warna tertentu.
+Penggunaan yang tepat: Pemilih jenis biasanya digunakan saat Anda ingin menerapkan gaya yang konsisten pada jenis elemen tertentu di seluruh situs web Anda. Misalnya, menata semua elemen tag h1 dengan font dan warna tertentu.
 
 2. Jelaskan HTML5 Tag yang kamu ketahui.
 Seperti yang kita ketahui bahwa HTML5 merupakan versi baru dari HTML (Hypertext markup Language). HTML5 memperkenalkan banyak tag baru yang akan menguntungkan banyak pengembang. Tag ini umumnya didukung oleh semua browser utama. Tag ini dimiliki oleh banyak aspek seperti grafik, media, dan formulir.
