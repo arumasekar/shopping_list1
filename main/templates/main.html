@@ -21,6 +21,18 @@
         tr:hover {
             background-color: #9980FA; /* Warna latar belakang saat kursor diarahkan pada baris */
         }
+
+        /* Gaya untuk baris produk terakhir */
+        table tbody tr:last-child {
+            background-color: #cd84f1; /* Warna latar belakang untuk baris produk terakhir */
+        }
+
+        .card {
+        background-color: #dfe4ea; /* Warna latar belakang untuk card */
+        border: 4px solid #4128a6; /* Warna border untuk card */
+        border-radius: 5px; /* Sudut card yang dibulatkan */
+        margin-bottom: 20px; /* Jarak antara card */
+        }
     </style>
 
     <h1>Shopping List Page</h1>
@@ -31,17 +43,15 @@
     <h5>Class:</h5>
     <p>{{class}}</p>
 
-    <nav>
-        <ul>
-            <li><a href="#description">Description</a></li>
-        </ul>
-    </nav>
-    
-    <div class="description">
-        <p>Ini adalah halaman untuk melihat daftar belanja sepatu favorit Anda.</p>
-        <p>Anda dapat menavigasi ke beranda, keranjang belanja, atau riwayat pesanan Anda.</p>
-    </div>
-
+    <div class="card">
+        <h5 class="card-header">Description</h5>
+        <div class="card-body">
+          <h5 class="card-title">About Your Product</h5>
+          <p class="card-text">Ini adalah halaman untuk melihat daftar belanja sepatu favorit Anda.</p>
+          <p class="card-text">Anda dapat menavigasi ke beranda, keranjang belanja, atau riwayat pesanan Anda.</p>
+          <a href="#" class="btn btn-primary">Product Summary</a>
+        </div>
+      </div>
 
     <table border="1">
         <thead>
@@ -50,25 +60,37 @@
                 <th>Amount</th>
                 <th>Price</th>
                 <th>Description</th>
+                <th>Edit</th>
             </tr>
         </thead>
         <tbody>
             {% for product in products %}
-        <tr>
-            <td>{{product.name}}</td>
-            <td>
-                <span id="amount{{ product.id }}">{{ product.amount }}</span>
-                <button class="add-quantity" data-product-id="{{ product.id }}">Tambah</button>
-                <button class="reduce-quantity" data-product-id="{{ product.id }}">Kurangi</button>
-            </td>
-            <td>{{product.price}}</td>
-            <td>{{product.description}}</td>
-
-        </tr>
-    {% endfor %}
+                <tr>
+                    <td>{{product.name}}</td>
+                    <td>
+                        <span id="amount{{ product.id }}">{{ product.amount }}</span>
+                        <button class="add-quantity" data-product-id="{{ product.id }}">Tambah</button>
+                        <button class="reduce-quantity" data-product-id="{{ product.id }}">Kurangi</button>
+                    </td>
+                    <td>{{product.price}}</td>
+                    <td>{{product.description}}</td>
+                    <td>
+                        <a href="{% url 'main:edit_product' product.pk %}">
+                            <button>
+                                Edit
+                            </button>
+                        </a>
+                        <a href="{% url 'main:delete_product' product.pk %}">
+                            <button>
+                                Delete
+                            </button>
+                        </a>
+                    </td>
+                </tr>
+            {% endfor %}
         </tbody>
     </table>
-    
+
     <br />
 
     <h5>Sesi terakhir login: {{ last_login }}</h5>
@@ -80,7 +102,6 @@
             Add New Product
         </button>
     </a>
-</a>
 
     <a href="{% url 'main:logout' %}">
         <button>
@@ -100,7 +121,7 @@
                 }
             });
         });
-    
+
         document.querySelectorAll('.reduce-quantity').forEach(function(button) {
             button.addEventListener('click', function() {
                 var productId = this.getAttribute('data-product-id');
@@ -112,12 +133,7 @@
             });
         });
     </script>
-
-    </body>
-    </html>
-
-    <br />
+</body>
+</html>
+<br />
 {% endblock content %}
-
-   
-      

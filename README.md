@@ -3,6 +3,81 @@
 - Kelas: B
 - Kode Asdos: EDA
 
+- TUGAS 5
+1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
+Dalam pengembangan web dan CSS (Cascading Style Sheets), pemilih elemen digunakan untuk menargetkan dan menata gaya elemen HTML pada halaman web. Ada beberapa jenis penyeleksi elemen, masing-masing memiliki manfaat dan kasus penggunaan yang sesuai. 
+# Type Selector (Element Selector)
+Type selectors menargetkan elemen HTML tertentu berdasarkan nama tagnya. Mereka lugas dan mudah digunakan.
+Penggunaan yang tepat: Pemilih jenis biasanya digunakan saat Anda ingin menerapkan gaya yang konsisten pada jenis elemen tertentu di seluruh situs web Anda. Misalnya, menata semua elemen <h1> dengan font dan warna tertentu.
+
+2. Jelaskan HTML5 Tag yang kamu ketahui.
+Seperti yang kita ketahui bahwa HTML5 merupakan versi baru dari HTML (Hypertext markup Language). HTML5 memperkenalkan banyak tag baru yang akan menguntungkan banyak pengembang. Tag ini umumnya didukung oleh semua browser utama. Tag ini dimiliki oleh banyak aspek seperti grafik, media, dan formulir.
+Berikut beberapa elemen yang diperkenalkan di HTML5:
+- Tag <artikel>: Tag <artikel> adalah salah satu elemen pembagian baru di HTML5. Tag HTML <article> digunakan untuk mewakili sebuah artikel. Lebih khusus lagi, konten dalam tag <article> tidak bergantung pada konten situs lainnya (walaupun mungkin terkait).
+- Tag <aside>: Tag <aside> digunakan untuk mendeskripsikan objek utama halaman web dengan cara yang lebih singkat seperti stabilo. Ini pada dasarnya mengidentifikasi konten yang terkait dengan konten utama halaman web tetapi bukan merupakan maksud utama halaman utama. Tag <aside> terutama berisi informasi penulis, tautan, konten terkait, dan sebagainya.
+- Tag <audio>: Tag <audio> digunakan untuk menyisipkan audio ke halaman web HTML.
+- Tag <canvas>: Tag <canvas> dalam HTML digunakan untuk menggambar grafik pada halaman web menggunakan JavaScript. Ini dapat digunakan untuk menggambar jalur, kotak, teks, gradien, dan menambahkan gambar. Secara default, ini tidak mengandung batas dan teks.
+- Tag <command>: Tag <command> mendefinisikan tombol perintah, dipanggil sesuai tindakan pengguna. Tombol tag <command> digunakan dalam jenis operasi khusus. Tag <command> hanya didukung oleh Internet Explorer.
+
+3. Jelaskan perbedaan antara margin dan padding.
+Perbedaan utama antara padding CSS dan margin adalah padding adalah ruang antara konten dan batas elemen (di dalam elemen itu sendiri), sedangkan margin adalah ruang di sekitar batas elemen.
+Padding adalah properti CSS yang hanya berfungsi pada elemen yang memiliki batas. Ini menciptakan ruang antara batas dan konten suatu elemen. Jadi, perlu diingat bahwa padding tidak berpengaruh pada elemen yang tidak memiliki batas.
+Margin membentuk ruang di luar batas elemen. Tidak seperti padding, margin masih dapat mempengaruhi suatu elemen apakah elemen tersebut memiliki batas atau tidak.
+Perbedaan lainnya adalah warna latar belakang padding dan batas dapat disesuaikan, sedangkan margin transparan. – dengan itu, warna latar belakang tema situs web akan ditampilkan.
+
+4. Jelaskan perbedaan antara framework CSS Tailwind dan Bootstrap. Kapan sebaiknya kita menggunakan Bootstrap daripada Tailwind, dan sebaliknya?
+Bootstrap digunakan untuk membuat aplikasi web dan seluler yang responsif sedangkan Tailwind CSS digunakan untuk membuat antarmuka pengguna yang disesuaikan.
+- Tailwind:
+a. Tailwind CSS membangun tampilan dengan menggabungkan kelas-kelas utilitas yang telah didefinisikan sebelumnya.
+b. Tailwind CSS memiliki file CSS yang lebih kecil sedikit dibandingkan Bootstrap dan hanya akan memuat kelas-kelas utilitas yang ada
+c. Tailwind CSS memiliki memberikan fleksibilitas dan adaptabilitas tinggi terhadap proyek
+d. Tailwind CSS memiliki pembelajaran yang lebih curam karena memerlukan pemahaman terhadap kelas-kelas utilitas yang tersedia dan bagaimana menggabungkannya untuk mencapai tampilan yang diinginkan.
+- Bootstrap
+a. Bootstrap menggunakan gaya dan komponen yang telah didefinisikan, yang memiliki tampilan yang sudah jadi dan dapat digunakan secara langsung.
+b. Bootstrap memiliki file CSS yang lebih besar dibandingkan dengan Tailwind CSS karena termasuk banyak komponen yang telah didefinisikan.
+c. Bootstrap sering kali menghasilkan tampilan yang lebih konsisten di seluruh proyek karena menggunakan komponen yang telah didefinisikan.
+d. Bootstrap memiliki pembelajaran yang lebih cepat untuk pemula karena dapat mulai dengan komponen yang telah didefinisikan.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- Langkah 1: Mempersiapkan Proyek Django
+a. Buka proyek Django yang telah ada (shopping_list).
+b. Buka file base.html yang terletak dalam folder templates di root proyek.
+- Langkah 2: Menambahkan Tag <meta>
+a. Di dalam tag <head> pada file templates/base.html, tambahkan tag <meta name="viewport"> untuk membuat halaman web menyesuaikan ukuran dan perilaku perangkat mobile (jika belum ada).
+- Langkah 3: Menambahkan Bootstrap CSS dan JS
+a. Tambahkan Bootstrap CSS dan jQuery (JS) ke dalam tag <head> pada file templates/base.html.
+- Langkah 4 (Opsional): Menambahkan Script untuk Dropdowns, Popovers, Tooltips
+a. Jika ingin menggunakan dropdowns, popover, dan tooltips dari Bootstrap, tambahkan dua script JS berikut di bawah script JS yang sudah ada.
+- Langkah 5: Menambahkan Navigation Bar (Navbar) pada main.html
+a. Tambahkan navbar (Navigation Bar) pada halaman main.html, termasuk nama Anda dan tombol logout.
+b. Gunakan referensi dari dokumentasi Bootstrap untuk membuat navbar sesuai dengan preferensi Anda.
+- Langkah 6: Menambahkan Fitur Edit pada Aplikasi
+a. Buka views.py dalam subdirektori main dan buat fungsi baru bernama edit_product yang menerima parameter request dan id.
+b. Tambahkan potongan kode untuk mengedit produk dan menyimpannya.
+- Langkah 7: Membuat Template untuk Edit Produk (edit_product.html)
+a. Buat berkas HTML baru dengan nama edit_product.html dalam subdirektori main/templates.
+b. Isi berkas tersebut dengan template yang disediakan, termasuk form untuk mengedit produk.
+- Langkah 8: Konfigurasi URL untuk Edit Produk
+a. Buka urls.py dalam folder main dan impor fungsi edit_product yang telah dibuat.
+b. Tambahkan path URL yang mengarah ke fungsi tersebut.
+- Langkah 9: Memperbarui main.html untuk Menambah Tombol Edit
+a. Buka main.html dalam subdirektori main/templates.
+b. Tambahkan kode agar terdapat tombol "Edit" pada setiap produk, dan tautan yang mengarah ke halaman edit produk.
+- Langkah 10: Membuat Fungsi Penghapusan Data Produk
+a. Buat fungsi baru dengan nama delete_product dalam views.py di folder main untuk menghapus data produk.
+b. Tambahkan kode untuk menghapus data produk berdasarkan ID.
+- Langkah 11: Konfigurasi URL untuk Hapus Produk
+a. Buka urls.py dalam folder main dan impor fungsi delete_product yang telah dibuat.
+b. Tambahkan path URL yang mengarah ke fungsi tersebut.
+- Langkah 12: Memperbarui main.html untuk Menambah Tombol Hapus
+a. Buka main.html dalam subdirektori main/templates.
+b. Tambahkan kode agar terdapat tombol "Hapus" pada setiap produk, dan tautan yang mengarah ke fungsi penghapusan produk.
+- Langkah 13: Menjalankan Proyek Django
+a. Jalankan proyek Django dengan perintah python manage.py runserver.
+b. Buka proyek di browser dengan alamat http://localhost:8000.
+c. Setelah login, cobalah mengedit dan menghapus data produk.
+d. Jika perubahan disimpan dan tercermin pada halaman utama tanp
+
 - TUGAS 4
 1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 Django UserCreationForm merupakan tools python yang digunakan untuk membuat user baru yang dapat menggunakan aplikasi web. Terdapat tiga field, yaitu:
