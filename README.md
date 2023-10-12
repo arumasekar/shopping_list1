@@ -3,12 +3,92 @@
 - Kelas: B
 - Kode Asdos: EDA
 
-- TUGAS 5
+## TUGAS 6
+1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
+Asynchronous programming bergantung pada protokol input dan output (I/O) non-blocking. Ini menandakan bahwa asynchronous programming tidak menjalankan operasi secara berurutan. Paralelisasi yang dihasilkan berarti asynchronous programming dapat menerima banyak permintaan secara bersamaan dan independen. Ketika satu permintaan gagal, hal itu tidak berpengaruh pada permintaan lainnya. Dan program dapat berpindah ke tugas lain sebelum menyelesaikan tugas terakhir.
+Sedangkan pada synchronous programming synchronous programming menggunakan operasi blocking I/O di mana setiap operasi harus dijalankan sebelum operasi berikutnya dijalankan. Secara umum, komputer berkecepatan tinggi, sehingga komunikasi yang sinkron tidak selalu merugikan. Dalam pemrograman, synchronous programming mengalokasikan satu thread untuk menangani permintaan atau menyelesaikan tugas. Karena synchronous programming terjadi satu per satu, tugas yang sangat panjang seperti query database akan memblokir semua thread lainnya untuk sementara.
+
+2. Dalam penerapan JavaScript dan AJAX, terdapat penerapan paradigma event-driven programming. Jelaskan maksud dari paradigma tersebut dan sebutkan salah satu contoh penerapannya pada tugas ini.
+Paradigma event-driven programming merupakan paradigma pemrograman komputer yang aliran programnya ditentukan oleh peristiwa seperti interaksi pengguna, keluaran sensor, atau pesan dari program atau thread lain. 
+Contoh event loop berikutmencetak hello world dengan menggunakan metode get_event_loop():
+<!-- import asyncio
+
+def hello_world(loop):
+   print('Hello World')
+   loop.stop()
+
+loop = asyncio.get_event_loop()
+
+loop.call_soon(hello_world, loop)
+
+loop.run_forever()
+loop.close() -->
+
+3. Jelaskan penerapan asynchronous programming pada AJAX.
+AJAX adalah kombinasi beberapa teknologi yang memungkinkan aplikasi web mengirim dan mengambil data dari server secara asinkronus. Dalam praktiknya, kita dapat memperbarui halaman web secara dinamis, tanpa harus memuat ulang seluruh halaman. Meskipun terdapat kesamaan dalam pertukaran data dan arus informasi, AJAX lebih efisien dibandingkan permintaan web konvensional. Dengan AJAX, browser hanya memperbarui konten web tertentu berdasarkan data yang diminta. Hal ini membuat aplikasi AJAX lebih cepat dan lebih responsif dibandingkan aplikasi web konvensional.
+Example:
+<!-- <!DOCTYPE html>
+<html>
+<body>
+
+<div id="demo">
+  <h2>Let AJAX change this text</h2>
+  <button type="button" onclick="loadDoc()">Change Content</button>
+</div>
+
+</body>
+</html> -->
+
+Halaman HTML berisi bagian "div" dan "button".
+Bagian "div" digunakan untuk menampilkan informasi dari server.
+"button" memanggil suatu fungsi (jika diklik).
+Fungsi ini meminta data dari server web dan menampilkannya:
+<!-- function loadDoc() {
+  var xhttp = new XMLHttpRequest();
+  xhttp.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+     document.getElementById("demo").innerHTML = this.responseText;
+    }
+  };
+  xhttp.open("GET", "ajax_info.txt", true);
+  xhttp.send();
+} -->
+
+4. Pada PBP kali ini, penerapan AJAX dilakukan dengan menggunakan Fetch API daripada library jQuery. Bandingkanlah kedua teknologi tersebut dan tuliskan pendapat kamu teknologi manakah yang lebih baik untuk digunakan.
+- Fetch API:
+a. Bawaan JavaScript: Fetch API adalah bagian dari JavaScript, sehingga tidak memerlukan unduhan tambahan seperti jQuery.
+b. Lebih ringan: Fetch API memiliki ukuran file yang lebih kecil dibandingkan dengan jQuery, sehingga mengurangi waktu unduhan dan menghemat bandwidth.
+c. Modern: Fetch API adalah teknologi modern yang mendukung Promise, yang membuatnya lebih mudah untuk mengelola asinkronisme.
+d. Modular: kita dapat menggunakan Fetch API secara modular untuk mengambil dan mengirim data, yang memungkinkan pengembang mengontrol lebih banyak detail.
+- jQuery:
+a. Abstraksi tinggi: jQuery menyediakan antarmuka yang lebih sederhana dan abstraksi tinggi untuk berinteraksi dengan AJAX, sehingga lebih mudah digunakan, terutama bagi pengembang pemula.
+b. Kompatibilitas: jQuery memiliki dukungan untuk browser yang lebih tua, yang mungkin penting jika kita harus mendukung pengguna dengan browser lama.
+c. Plugin ekstensif: jQuery memiliki berbagai plugin yang dapat memperluas fungsionalitasnya, sehingga memudahkan dalam pengembangan berbagai jenis proyek.
+
+Untuk proyek kecil atau aplikasi web yang ringan, menggunakan Fetch API adalah pilihan yang baik karena itu lebih ringan dan modern. Namun, jika kita perlu mendukung browser yang  ingin memanfaatkan plugin ekstensif, maka jQuery mungkin merupakan pilihan yang lebih baik.
+
+5. Jelaskan bagaimana cara kamu mengimplementasikan checklist di atas secara step-by-step (bukan hanya sekadar mengikuti tutorial).
+- Pembuatan Fungsi untuk Mengambil Data JSON (views.py):
+Di tahap awal, kita akan membuat fungsi khusus di berkas views.py. Fungsi ini bertujuan untuk mengekstraksi data produk dari basis data dan mengirimkannya kembali dalam format JSON. Tujuan dari langkah ini adalah memungkinkan tampilan data produk yang efisien di halaman HTML kita dengan bantuan Fetch API.
+- Pembuatan Fungsi untuk Menambahkan Produk dengan AJAX (views.py):
+Pada tahap selanjutnya, kita akan menciptakan fungsi tambahan di berkas views.py. Fungsi ini akan menangani penambahan produk baru ke dalam basis data kita dengan menggunakan teknologi AJAX. Pada langkah ini, kita juga akan menerapkan dekorator `@csrf_exempt` untuk mengabaikan perlindungan CSRF saat berinteraksi dengan fungsi ini. 
+- Penambahan Routing untuk Fungsi `get_product_json` dan `add_product_ajax` (urls.py): 
+Kita akan memperluas berkas urls.py dengan menambahkan rute URL baru yang mengarahkan ke kedua fungsi yang telah kita buat sebelumnya. Ini adalah langkah kunci dalam menghubungkan URL dengan aksi yang sesuai di berkas views.py.
+- Menampilkan Data Produk dengan Fetch API (main.html):
+Di sisi tampilan, langkah selanjutnya akan memanfaatkan Fetch API untuk mengambil data produk dari server secara asinkron. Data ini kemudian akan diolah dan dimasukkan ke dalam sebuah tabel yang sesuai dengan tampilan yang kita inginkan. 
+- Pembuatan Modal Sebagai Formulir untuk Menambahkan Produk (main.html):
+kita akan merancang sebuah elemen modal, dengan menggunakan komponen Bootstrap, yang berfungsi sebagai formulir untuk menambahkan produk baru. Modal ini akan muncul ketika pengguna mengeklik tombol "Add Product by AJAX".
+- Penambahan Data Produk dengan AJAX (main.html):
+Selanjutnya, kita akan mengimplementasikan kode JavaScript yang memungkinkan pengguna untuk mengisi formulir modal dan menambahkan produk ke dalam basis data dengan menggunakan teknologi AJAX. Data dari formulir akan diambil dan dikirimkan melalui permintaan POST ke server. Pengguna dapat secara dinamis menambahkan produk tanpa perlu memuat ulang halaman.
+
+
+
+## TUGAS 5
 1. Jelaskan manfaat dari setiap element selector dan kapan waktu yang tepat untuk menggunakannya.
 Dalam pengembangan web dan CSS (Cascading Style Sheets), pemilih elemen digunakan untuk menargetkan dan menata gaya elemen HTML pada halaman web. Ada beberapa jenis penyeleksi elemen, masing-masing memiliki manfaat dan kasus penggunaan yang sesuai. 
 # Type Selector (Element Selector)
 Type selectors menargetkan elemen HTML tertentu berdasarkan nama tagnya. Mereka lugas dan mudah digunakan.
-Penggunaan yang tepat: Pemilih jenis biasanya digunakan saat Anda ingin menerapkan gaya yang konsisten pada jenis elemen tertentu di seluruh situs web Anda. Misalnya, menata semua elemen tag h1 dengan font dan warna tertentu.
+Penggunaan yang tepat: Pemilih jenis biasanya digunakan saat kita ingin menerapkan gaya yang konsisten pada jenis elemen tertentu di seluruh situs web Anda. Misalnya, menata semua elemen tag h1 dengan font dan warna tertentu.
 
 2. Jelaskan HTML5 Tag yang kamu ketahui.
 Seperti yang kita ketahui bahwa HTML5 merupakan versi baru dari HTML (Hypertext markup Language). HTML5 memperkenalkan banyak tag baru yang akan menguntungkan banyak pengembang. Tag ini umumnya didukung oleh semua browser utama. Tag ini dimiliki oleh banyak aspek seperti grafik, media, dan formulir.
@@ -49,7 +129,7 @@ a. Tambahkan Bootstrap CSS dan jQuery (JS) ke dalam tag <head> pada file templat
 - Langkah 4 (Opsional): Menambahkan Script untuk Dropdowns, Popovers, Tooltips
 a. Jika ingin menggunakan dropdowns, popover, dan tooltips dari Bootstrap, tambahkan dua script JS berikut di bawah script JS yang sudah ada.
 - Langkah 5: Menambahkan Navigation Bar (Navbar) pada main.html
-a. Tambahkan navbar (Navigation Bar) pada halaman main.html, termasuk nama Anda dan tombol logout.
+a. Tambahkan navbar (Navigation Bar) pada halaman main.html, termasuk nama kita dan tombol logout.
 b. Gunakan referensi dari dokumentasi Bootstrap untuk membuat navbar sesuai dengan preferensi Anda.
 - Langkah 6: Menambahkan Fitur Edit pada Aplikasi
 a. Buka views.py dalam subdirektori main dan buat fungsi baru bernama edit_product yang menerima parameter request dan id.
@@ -78,7 +158,7 @@ b. Buka proyek di browser dengan alamat http://localhost:8000.
 c. Setelah login, cobalah mengedit dan menghapus data produk.
 d. Jika perubahan disimpan dan tercermin pada halaman utama tanp
 
-- TUGAS 4
+## TUGAS 4
 1. Apa itu Django UserCreationForm, dan jelaskan apa kelebihan dan kekurangannya?
 Django UserCreationForm merupakan tools python yang digunakan untuk membuat user baru yang dapat menggunakan aplikasi web. Terdapat tiga field, yaitu:
 - username
@@ -137,8 +217,7 @@ Serangan dapat menyebabkan pencurian cookie atau memanipulasi data jika penyeran
 - Menampilkan informasi tentang pengguna yang sedang login di halaman utama aplikasi dengan menggunakan variabel request.user, yang akan memberikan akses ke objek pengguna yang sedang login saat ini
 
 
-
-- TUGAS 3
+## TUGAS 3
 1. Apa perbedaan antara form POST dan form GET dalam Django?
 Berikut adalah perbedaan dari form POST dan form GET:
 # GET:
@@ -176,7 +255,7 @@ JSON adalah format file yang menggunakan teks dan dapat dibaca oleh manusia untu
 - Tidak mendukung komentar
 - Hanya mendukung pengkodean UTF-8
 # XML:
-XML adalah bahasa markup yang dapat diperluas yang dirancang untuk menyimpan data. XML memungkinkan Anda menentukan elemen markup dan menghasilkan bahasa markup yang disesuaikan. Elemen adalah unit dasar dalam bahasa XML.
+XML adalah bahasa markup yang dapat diperluas yang dirancang untuk menyimpan data. XML memungkinkan kita menentukan elemen markup dan menghasilkan bahasa markup yang disesuaikan. Elemen adalah unit dasar dalam bahasa XML.
 - Bahasa markup yang dapat diperluas
 - Berasal dari SGML
 - Bahasa markup dan menggunakan struktur tag untuk mewakili item data
@@ -238,8 +317,7 @@ Menggunakan Postman sebagai alat untuk menguji endpoint-endpoint yang telah dibu
 ![Alt Text](/GambarPostman_WahyuAjiAruma/LocalHost8000json_4_WahyuAjiAruma.png)
 
 
-
-- TUGAS 2
+## TUGAS 2
 1. Membuat sebuah README.md yang berisi tautan menuju aplikasi Adaptable yang sudah di-deploy, serta jawaban dari beberapa pertanyaan berikut.
 Link: https://main.adaptable.app
 
