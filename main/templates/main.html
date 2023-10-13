@@ -149,12 +149,16 @@
             <th>Name</th>
             <th>Price</th>
             <th>Description</th>
+            <th>Delete</th>
         </tr>`
         products.forEach((item) => {
             htmlString += `\n<tr>
             <td>${item.fields.name}</td>
             <td>${item.fields.price}</td>
             <td>${item.fields.description}</td>
+            <td>
+                <button class="btn btn-danger delete-product" data-product-id="${ item.pk }">Delete</button>
+            </td>
         </tr>` 
         })
         
@@ -174,6 +178,14 @@
     }
 
     document.getElementById("button_add").onclick = addProduct
+
+    document.querySelectorAll('.delete-product').forEach(function (button) {
+    button.addEventListener('click', function () {
+        var productId = this.getAttribute('data-product-id');
+        deleteProduct(productId);
+    });
+});
+
 </script>
 
 <br />

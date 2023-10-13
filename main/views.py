@@ -14,6 +14,7 @@ from django.contrib.auth.decorators import login_required
 import datetime
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
+from django.http import JsonResponse
 
 
 # Create your views here.
@@ -135,4 +136,15 @@ def add_product_ajax(request):
         return HttpResponse(b"CREATED", status=201)
 
     return HttpResponseNotFound()
+
+def delete_product_ajax(request):
+    if request.method == "POST":
+        product_id = request.POST.get('product_id')
+        try:
+            product = Product.objects.get(pk=product_id)
+            product.delete()
+            return JsonResponse({'message': 'Product deleted successfully.'})
+        except Product.DoesNotExist:
+            return JsonResponse({'message': 'Product not found.'}, status=404)
+    return JsonResponse({'message': 'Invalid request method.'}, status=400)
 
