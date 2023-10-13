@@ -4,6 +4,9 @@
 - Kode Asdos: EDA
 
 ## TUGAS 6
+# Tautan aplikasi
+wahyu-aji21-tugas.pbp.cs.ui.ac.id
+
 1. Jelaskan perbedaan antara asynchronous programming dengan synchronous programming.
 Asynchronous programming bergantung pada protokol input dan output (I/O) non-blocking. Ini menandakan bahwa asynchronous programming tidak menjalankan operasi secara berurutan. Paralelisasi yang dihasilkan berarti asynchronous programming dapat menerima banyak permintaan secara bersamaan dan independen. Ketika satu permintaan gagal, hal itu tidak berpengaruh pada permintaan lainnya. Dan program dapat berpindah ke tugas lain sebelum menyelesaikan tugas terakhir.
 Sedangkan pada synchronous programming synchronous programming menggunakan operasi blocking I/O di mana setiap operasi harus dijalankan sebelum operasi berikutnya dijalankan. Secara umum, komputer berkecepatan tinggi, sehingga komunikasi yang sinkron tidak selalu merugikan. Dalam pemrograman, synchronous programming mengalokasikan satu thread untuk menangani permintaan atau menyelesaikan tugas. Karena synchronous programming terjadi satu per satu, tugas yang sangat panjang seperti query database akan memblokir semua thread lainnya untuk sementara.
