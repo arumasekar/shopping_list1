@@ -10,3 +10,6 @@ class Product(models.Model):
     description = models.TextField()
     price = models.IntegerField() 
     size = models.CharField(max_length=255, default=" ")
+
+def __str__(self) -> str:
+        return self.name

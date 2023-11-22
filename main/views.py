@@ -1,5 +1,7 @@
+import json
 from django.shortcuts import render
 from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect, HttpResponseNotFound, JsonResponse
 from main.forms import ProductForm
 from django.urls import reverse
 from django.http import HttpResponse
@@ -15,7 +17,41 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
+from main.forms import  RegisterForm, ItemForm
 
+@csrf_exempt
+def create_item_flutter_new(request):
+    if request.method == 'POST':
+        # print("TEST 1")
+        data = json.loads(request.body)
+
+        new_item = Product.objects.create(
+            user = request.user,
+            name = data["name"],
+            amount = int(data["amount"]),
+            description = data["description"],
+        )
+        print(request.user, "ASAS")
+        # print("TEST 2")
+        new_item.save()
+
+        return JsonResponse({"status": "success"}, status=200)
+    else:
+        return JsonResponse({"status": "error"}, status=401)
+    
+# @login_required(login_url='/login')
+@csrf_exempt
+def show_json_user(request,uname):
+    # print(uname)
+    data_item = Product.objects.all()
+    for data in data_item:
+        if data.user.username == uname:
+            user_id = data.user
+            data = Product.objects.filter(user = user_id)
+            break
+        else:
+            data = []
+    return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 # Create your views here.
 @login_required(login_url='/login')
