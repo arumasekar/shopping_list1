@@ -12,8 +12,8 @@ from main.views import delete_product
 from main.views import get_product_json
 from main.views import add_product_ajax
 from main.views import delete_product_ajax
-from main.views import create_item_flutter_new
-from main.views import show_json_user
+from main.views import create_product_flutter
+from main.views import show_json_by_user
 
 app_name = 'main'
 
@@ -32,6 +32,6 @@ urlpatterns = [
     path('get-product/', get_product_json, name='get_product_json'),
     path('create-ajax/', add_product_ajax, name='add_product_ajax'),
     path('delete-ajax/', delete_product_ajax, name='delete_product_ajax'),
-    path('create-flutter/', create_item_flutter_new, name='create_item_flutter'),
-    path("json-item/<str:uname>/",show_json_user, name="show_json_user"),
+    path('create-flutter/', create_product_flutter, name='create_product_flutter'),
+    path('json-by-user/',show_json_by_user, name='show_json_by_user'),
 ]

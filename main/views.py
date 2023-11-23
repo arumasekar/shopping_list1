@@ -17,40 +17,30 @@ import datetime
 from django.http import HttpResponseRedirect
 from django.views.decorators.csrf import csrf_exempt
 from django.http import JsonResponse
-from main.forms import  RegisterForm, ItemForm
+
 
 @csrf_exempt
-def create_item_flutter_new(request):
+def create_product_flutter(request):
     if request.method == 'POST':
-        # print("TEST 1")
+        
         data = json.loads(request.body)
 
-        new_item = Product.objects.create(
+        new_product = Product.objects.create(
             user = request.user,
             name = data["name"],
             amount = int(data["amount"]),
-            description = data["description"],
+            price = int(data["price"]),
+            description = data["description"]
         )
-        print(request.user, "ASAS")
-        # print("TEST 2")
-        new_item.save()
+
+        new_product.save()
 
         return JsonResponse({"status": "success"}, status=200)
     else:
         return JsonResponse({"status": "error"}, status=401)
     
-# @login_required(login_url='/login')
-@csrf_exempt
-def show_json_user(request,uname):
-    # print(uname)
-    data_item = Product.objects.all()
-    for data in data_item:
-        if data.user.username == uname:
-            user_id = data.user
-            data = Product.objects.filter(user = user_id)
-            break
-        else:
-            data = []
+def show_json_by_user(request):
+    data = Product.objects.filter(user = request.user)
     return HttpResponse(serializers.serialize("json", data), content_type="application/json")
 
 # Create your views here.
